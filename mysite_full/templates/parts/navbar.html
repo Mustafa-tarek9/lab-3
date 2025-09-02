@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <a class="brand" href="/">MySite</a>
+  <ul>
+    <li><a href="{% url 'products:products_list' %}">Products</a></li>
+    <li><a href="{% url 'admin:index' %}">Admin</a></li>
+  </ul>
+
+  {# Template comment: this will not appear in rendered HTML #}
+  <form method="get" action="{% url 'products:products_list' %}" style="display:inline;">
+    <input type="search" name="q" placeholder="Search..." value="{{ request.GET.q|default:'' }}">
+    <button type="submit">Search</button>
+  </form>
+</nav>
